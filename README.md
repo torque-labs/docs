@@ -8,27 +8,28 @@ coverY: -145.7282051282051
 
 # Introduction
 
-### **Ship on‑chain incentives in minutes—not months.**&#x20;
+### **Smart Incentives from A to Z.**&#x20;
 
-Connect real user activity to rewards (tokens, NFTs, points) with pre‑indexed Solana data, precision targeting, and built‑in analytics & optimization.
+Torque connects onchain activity to rewards—tokens, NFTs, or points—with pre-indexed Solana data, smart targeting, and built-in analytics. No infrastructure required.
 
-### **Why use Torque?**
+### Why Use Torque?
 
-1. **Plug and play, skip indexing.** Torque already tracks activity across top Solana programs; add your IDL in seconds and you’re incentive‑ready. \
+1. **Skip the infrastructure** Stop building indexers, databases, and claim systems. Torque already tracks activity across major Solana programs. Add your protocol in seconds and you're ready to launch incentives.
+2. **Launch in minutes, not weeks** Set up leaderboards, rebates, raffles, and airdrops using queries and templates. No code required. Distribute rewards based on actual onchain behavior, automatically.
+3. **Optimize with real data** Target high-value users, filter out wash trading, and track what's working. Adjust your campaigns between cycles and measure real ROI—not vanity metrics.
 
-2. **Launch & automate fast.** Spin up leaderboards, rebates, raffles, airdrops, and instant rewards via drag‑and‑drop or code—then auto‑issue tokens, NFTs, or points on real behavior.\
+***
 
-3. **Prove ROI with precision audiences.** Segment high‑value users, add anti‑wash filters and lookbacks, then measure, learn, and optimize every campaign.&#x20;
+### Who This Is For
 
-### **Who this is for?**
+* **Protocol Marketing Teams** Drive growth tied to real usage. Reward your own onchain actions or collaborate with other protocols to cross-promote and expand your reach.
+* **Token Teams** Boost trading volume, increase liquidity, and incentivize long-term holding—all without managing complex reward infrastructure.
 
-* **Protocol Marketing Teams** who want to drive growth tied to real onchain usage both tied to their onchain actions or external onchain actions for collaboration
-* **Developers** who need reliable primitives to connect onchain usage to rewards (and optionally off‑chain rewards via webhook)
-* **Token Teams** who need to boost trading volume, liquidity, and longer term holding
+***
 
-### **What you can build in the next 5 minutes:**
+### What You Can Build in 5 Minutes
 
-* Weekly trading leaderboards with a fixed prize pool.
-* Net‑new depositor rebates with wash‑trade filtering and caps.
-* Participation raffles with minimum activity thresholds.
-* Action‑gated incentives to provide bonus rewards in real-time
+* **Weekly trading leaderboard** Top 10 traders compete for tiered rewards. Updates automatically every Monday. Users claim their winnings.
+* **LP deposit rebate** Give 10% bonus to new liquidity providers. Filter out wash trading. Cap rewards per wallet and total budget.
+* **Participation raffle** Randomly reward 100 users who traded at least $500 this week. Keeps your long-tail engaged.
+* **Direct token distribution** Instantly reward specific wallets. Perfect for partnerships, milestones, or manual allocations.

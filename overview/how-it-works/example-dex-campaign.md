@@ -1,66 +1,176 @@
 # Example DEX Campaign
 
-## Show me an example!
+## Example DEX Campaign: Two Incentives in 10 Minutes
 
-**What it does:** A two‑part example campaign that (1) gets more liquidity on day one and (2) keeps traders active every week—using **Real‑Time** and **Precision** incentives together.
+**What you'll build:** A two-part campaign that (1) attracts liquidity providers on day one and (2) keeps your top traders competing every week.
 
-***
+### Incentive 1 — LP Reward Program (Rebate)
 
-### Example DEX Campaign (2 Incentives in 10 minutes)
+**Goal:** Get more liquidity in your pools
 
-#### Incentive 1 — **Instant LP Boost** (Real‑Time)
+**Setup:**
 
-**Goal:** Increase LP Deposits.
+* **Type:** Rebate (Recurring)
+* **Frequency:** Daily
+* **Duration:** 30 days
+* **Query:** New LP depositors with minimum threshold
+* **Reward:** 10% bonus on qualifying deposits
+* **Distribution:** Claim (72-hour window)
 
-* **Action:** User **deposits Min LP**
-* **Type:** **Real‑Time**
-* **Distributor:** **Linear** 10% bonus on the qualifying deposit, **streamed over 30 days**, delivered via **Claim** (14‑day claim window; re‑check eligibility at claim).
-* **Why it works:** Users see immediate value but must stick around to earn the full stream.
+**Your Query:**
 
-**Suggested filters (simple):**\
-Caps per wallet, total campaign cap, anti‑wash on.
+sql
 
-***
+```sql
+SELECT 
+  depositor_address as address,
+  deposit_amount * 0.10 as amount
+FROM lp_deposits
+WHERE deposit_date BETWEEN '{startDate}' AND '{endDate}'
+  AND deposit_amount >= {min_deposit}
+  AND is_first_deposit = true
+```
 
-#### Incentive 2 — **Weekly Top Traders** (Precision)
+**Why it works:** Users see immediate rewards but must claim them regularly, keeping them engaged with your protocol.
 
-**Goal:** Drive trader volume.
+**Safety settings:**
 
-* **Action:** User **trades** (e.g., meets a 7‑day volume threshold across ≥3 token pairs).
-* **Incentive:** **Precision → Leaderboard** (rank by weekly qualified volume).
-* **Distributor:** **Step** tiers for Top‑1/5/10/50, paid via **Claim** at the end of each week.
-* **Why it works:** Clear, recurring competition with predictable rewards.
-
-**Optional add‑on (1 line):** A **0.5% fee rebate** for first‑time traders (with caps) to smooth the first week. (Precision → **Rebate**, **PreDefined Allocation** , daily claim.)
-
-***
-
-### Quick setup checklist
-
-1. **Audiences**
-   * New LP Depositors (first deposit in 7d, min size, anti‑wash on).
-   * Active Traders (7d volume ≥ threshold, markets ≥ 3, approved venues).
-2. **Incentives**
-   * Real‑Time for LP deposits (instant eligibility).
-   * Precision Leaderboard for weekly trading.
-   * Precision Rebate for 1st week reward.
-3. **Distributors**
-   * LP Boost: **Linear** bonus, **Streaming**, **Claim** (14‑day window, eligibility re‑check).
-   * Leaderboard: **PreDefined Allocation** , **Claim** weekly.
-     * Rebate: **PreDefined Allocation**, **Claim** daily.
-4. **Safety rails**
-   * Caps (per wallet + total), denylist, anti‑wash filters on. 【23†Torque: Solana’s Incentive Protocol】
-5. **Measure**
-   * LP added, weekly active traders, claim rate, cost per engaged wallet. Optimize thresholds/tiers weekly.
+* Cap per wallet: 1,000 tokens
+* Total campaign budget: 50,000 tokens
+* Minimum deposit: $100
 
 ***
 
-### How this helps you?
+### Incentive 2 — Weekly Top Trader Leaderboard
 
-Stay focused on building your product so you don't need to build indexing, ranking, claim surfaces, reward measurement, analytics, and targeting. You ship the strategy, not the plumbing.&#x20;
+**Goal:** Drive consistent trading volume
+
+**Setup:**
+
+* **Type:** Leaderboard (Recurring)
+* **Frequency:** Weekly (resets every Monday)
+* **Query:** Traders ranked by 7-day volume across multiple pairs
+* **Reward:** Tiered payouts for Top 1/5/10/50
+* **Distribution:** Claim (72-hour window after each week ends)
+
+**Your Query:**
+
+sql
+
+```sql
+SELECT 
+  trader_address as address,
+  SUM(trade_volume) as score
+FROM trades
+WHERE trade_date BETWEEN '{startDate}' AND '{endDate}'
+  AND market_count >= 3
+  AND total_volume >= {min_volume}
+GROUP BY trader_address
+ORDER BY score DESC
+```
+
+**Reward Tiers:**
+
+* 1st place: 5,000 tokens
+* Top 5: 2,000 tokens each
+* Top 10: 1,000 tokens each
+* Top 50: 500 tokens each
+
+**Why it works:** Clear competition with predictable rewards. Traders know exactly what they're competing for each week.
 
 ***
 
-#### Want to expand later?
+### Bonus: First-Time Trader Rebate (Optional)
 
-Add a **Participation Raffle** for any qualified action (keeps the long‑tail engaged) or a **Community Milestone** payout (many actions → one celebration). These are one‑click additions once the two core incentives are running.
+**Goal:** Smooth onboarding for new traders
+
+**Setup:**
+
+* **Type:** Rebate (One-off)
+* **Duration:** First 7 days of campaign
+* **Query:** First-time traders
+* **Reward:** 0.5% of trading fees back
+* **Distribution:** Claim (daily, 48-hour window)
+
+**Your Query:**
+
+sql
+
+```sql
+SELECT 
+  trader_address as address,
+  SUM(trading_fees) * 0.005 as amount
+FROM trades
+WHERE trade_date BETWEEN '{startDate}' AND '{endDate}'
+  AND is_first_trade = true
+```
+
+***
+
+### Quick Setup Checklist
+
+#### 1. Create Your Queries
+
+* **New LP Depositors** — Filters for first deposits above minimum threshold
+* **Active Traders** — 7-day volume across 3+ markets
+* **First-Time Traders** — New users within first week
+
+#### 2. Configure Your Incentives
+
+* **LP Rebate:** Daily recurring, 30-day campaign
+* **Trading Leaderboard:** Weekly recurring, ongoing
+* **Onboarding Rebate:** One-off, 7-day duration
+
+#### 3. Set Distribution Methods
+
+* All set to **Claim** with 72-hour windows
+* Gives users flexibility to claim on their schedule
+* Reduces gas costs vs. airdrops
+
+#### 4. Add Safety Rails
+
+* Per-wallet caps to prevent whales from dominating
+* Total budget limits per epoch
+* Query filters to exclude wash trading patterns
+
+#### 5. Measure Success
+
+Track these metrics in your incentive dashboard:
+
+* Total LP added
+* Weekly active traders
+* Claim rate (% of eligible users who claim)
+* Cost per engaged wallet
+
+Adjust your query thresholds and reward tiers weekly based on results.
+
+***
+
+### What You Get
+
+Instead of building indexing infrastructure, ranking systems, claim interfaces, and analytics dashboards, you just:
+
+1. Write your queries
+2. Configure your incentives
+3. Set your budgets
+4. Launch
+
+Torque handles the rest.
+
+***
+
+### Want to Expand Later?
+
+Once these core incentives are running, consider adding:
+
+**Raffle for Long-Tail Engagement**
+
+* Randomly reward 100 users from anyone who traded this week
+* Keeps smaller traders engaged even if they can't compete with whales
+
+**Direct Distribution for Milestones**
+
+* Celebrate hitting 10,000 total traders
+* One-time reward to everyone who participated
+
+Both are one-click additions once your base campaign is live.

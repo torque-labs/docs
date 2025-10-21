@@ -4,9 +4,9 @@
 
 * [Introduction](README.md)
 * [Core Concepts](overview/core-concepts/README.md)
-  * [Audiences](overview/core-concepts/audiences.md)
+  * [Queries](overview/core-concepts/queries.md)
   * [Incentives](overview/core-concepts/incentives.md)
-  * [Distributors](overview/core-concepts/distributors.md)
+  * [Lists](overview/core-concepts/lists.md)
 * [How it Works](overview/how-it-works/README.md)
   * [Example DEX Campaign](overview/how-it-works/example-dex-campaign.md)
   * [Advanced: Designing Real-Time Incentives with Torque](overview/how-it-works/torque-building-blocks.md)
