@@ -2,8 +2,8 @@
 description: >-
   Pre‑indexed Solana data. Precision & real‑time rewards. Analytics that prove
   ROI.
-cover: .gitbook/assets/Twitter-Cover-02.png
-coverY: -145.7282051282051
+cover: .gitbook/assets/docs-cover.png
+coverY: 0
 ---
 
 # Introduction
