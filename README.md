@@ -3,7 +3,7 @@ description: >-
   Pre‑indexed Solana data. Precision & real‑time rewards. Analytics that prove
   ROI.
 cover: .gitbook/assets/docs-cover.png
-coverY: 0
+coverY: 153.8942956795679
 ---
 
 # Introduction
