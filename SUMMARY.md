@@ -13,6 +13,7 @@
 
 ## For Developers
 
+* [Referral Rewards](for-developers/referral-rewards.md)
 * [Getting Started](for-developers/getting-started/README.md)
   * [Using the Hooks](for-developers/getting-started/using-the-hooks.md)
   * [Managing Offers using the SDK](for-developers/getting-started/managing-offers-using-the-sdk.md)
