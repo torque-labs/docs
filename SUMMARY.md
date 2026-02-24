@@ -379,3 +379,14 @@
     * [OfferWithStatus](reference/react/type-aliases/offerwithstatus.md)
     * [StartOfferParams](reference/react/type-aliases/startofferparams.md)
     * [XActionParams](reference/react/type-aliases/xactionparams.md)
+* ```yaml
+  type: builtin:openapi
+  props:
+    models: false
+    downloadLink: false
+  dependencies:
+    spec:
+      ref:
+        kind: openapi
+        spec: torque-api
+  ```
