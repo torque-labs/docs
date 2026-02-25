@@ -26,7 +26,16 @@ Track campaign performance through a real-time dashboard. Monitor participation 
 
 Torque is built with a commitment to asset safety and technical excellence:<br>
 
-* **Non-Custodial Architecture**: Torque functions strictly as a technical provider and does not maintain signing authority or hold custody of assets.<br>
-* **Smart Contract Integrity**: The torque-offer-protocol-v2 program was formally audited by OtterSec in August 2025 to ensure the security of the on-chain mechanism.<br>
-* **On-Chain Settlement**: Assets are held within a secure on-chain program with predefined allocations; end users sign directly against the program to claim rewards.<br>
-* **Automatic Returns**: The on-chain logic ensures that if a distribution closes, any remainder rewards are automatically returned to the depositing wallet programmatically.
+*   **Non-Custodial Architecture:** Torque functions strictly as a technical provider and does not maintain signing authority or hold custody of assets.
+
+
+*   **Smart Contract Integrity:** The `torque-offer-protocol-v2` program was formally audited by OtterSec in August 2025 to ensure the security of the on-chain mechanism.
+
+
+*   **On-Chain Settlement:** In this mechanism, the depositor funds an on-chain program with predefined claim allocations; assets are held within the smart contract itself rather than a Torque wallet.
+
+
+*   **Verified Distribution:** End users sign transactions directly against the on-chain program to claim rewards.
+
+
+* **Automatic Returns:** The on-chain logic ensures that if a distribution closes, any remainder rewards are automatically and programmatically returned to the depositing wallet.
