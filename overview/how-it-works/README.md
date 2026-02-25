@@ -5,122 +5,31 @@ hidden: true
 
 # How it Works
 
-## How It Works
+### How It Works
 
-### 1. Plan Your Campaign
+#### 1. Define Your Strategy
 
-Start by answering these key questions:
+Design your incentive structure by setting your budget, timeline, and success metrics. Whether you are running a one-off event or recurring cycles, you define the goals—such as increasing protocol activity or user retention—and set the reward parameters that best fit your community.
 
-1. **What's your budget?** How many tokens are you allocating?
-2. **Is it recurring or one-off?** Weekly competition or single event?
-3. **What are your success metrics?** Volume? Users? Retention?
-4. **What do you want to optimize?** Minimum thresholds? Reward tiers? Frequency?
+#### 2. Identify Qualified Participants
 
-***
+Determine which users qualify for rewards based on specific on-chain behaviors. Torque translates these requirements into an accurate eligibility list, ensuring your incentives reach the intended audience without exposing your underlying data logic.
 
-### 2. Build Your [Query](../core-concepts/queries.md)
+#### 3. Review & Launch
 
-Queries define who qualifies for rewards. You can start with a template or write custom SQL.
+Torque provides a transparent preview of every distribution cycle (called an "epoch"). You have the opportunity to audit the list of participants and total allocations before the epoch is locked. Once approved, the distribution is managed programmatically by the audited smart contract.
 
-**Choose your approach:**
+#### 4. Monitor & Optimize
 
-* **Use a Template** — Select from pre-built queries (top traders, LP holders, etc.)
-* **Write Custom SQL** — Define your own qualification logic
-* **Get AI Help** — Let Torque Intelligence assist with query writing
-
-**What your query needs:**
-
-* `address` column (wallet addresses)
-* `score` or `amount` column (for allocation)
-* For recurring incentives: `startDate` and `endDate` parameters
-
-**Example query:**
-
-sql
-
-```sql
-SELECT 
-  trader_address as address,
-  trading_volume as score
-FROM trades
-WHERE trade_date BETWEEN '{startDate}' AND '{endDate}'
-  AND trading_volume >= {min_volume}
-```
+Track campaign performance through a real-time dashboard. Monitor participation and total activity driven to iterate on your strategy. You can adjust your criteria or budgets between cycles to continuously improve your ROI without disrupting active programs.
 
 ***
 
-### 3. Configure Your [Incentive](../core-concepts/incentives.md)
+### Security & Transparency
 
-Choose how rewards are distributed based on your goal:
+Torque is built with a commitment to asset safety and technical excellence:<br>
 
-**Incentive Types:**
-
-* **Leaderboard** — Reward top performers by rank (top 10 traders get tiered rewards)
-* **Raffle** — Random selection from qualified users (100 winners from active users)
-* **Rebate** — Reward based on activity metric (0.5% back on trading fees)
-* **Direct** — One-time distribution to specific addresses (quick reward distribution)
-
-**Set your schedule:**
-
-* Recurring: Daily, Weekly, or Monthly cycles
-* One-off: Single distribution event
-* Start and end dates
-
-**Configure distribution:**
-
-* **Claim** — Users claim their rewards (gives them flexibility)
-* **Airdrop** — Automatic distribution (convenient but costs more gas)
-* Set claim windows (1-72 hours)
-
-***
-
-### 4. Review & Launch
-
-Before each distribution (called an "epoch"), you'll get to:
-
-1. **Preview the** [**list**](../core-concepts/lists.md) — See exactly who qualifies and how much they get
-2. **Approve** — Lock the list and start distribution
-
-**Remember:** Once an epoch starts, the list is locked. Any changes to the query you make will apply to the next cycle.
-
-***
-
-### 5. Track & Optimize
-
-Monitor your campaign performance in real-time:
-
-**Key metrics to watch:**
-
-* Participation rate (how many qualified users claimed)
-* Cost per engaged wallet
-* Total activity driven (volume, deposits, trades)
-* Epoch-over-epoch trends
-
-**Optimize continuously:**
-
-* Adjust query thresholds between epochs
-* Tweak reward tiers based on results
-* Add or remove qualification criteria
-* Scale budgets up or down
-
-**For recurring incentives:** Changes take effect in the next epoch, so you can iterate weekly without disrupting active distributions.
-
-***
-
-### Bonus: Build It Into Your Product
-
-Developers can integrate Torque directly into their applications:
-
-**Integration options:**
-
-* **Platform UI** — Use Torque's hosted interface for easy setup
-* **API & SDK** — Build custom incentive flows in your own product
-* **Webhooks** — Trigger actions based on onchain events
-
-**What you can build:**
-
-* Live leaderboards showing real-time rankings
-* Custom claim pages branded for your protocol
-* Automated incentive programs tied to your product milestones
-
-Torque handles the heavy lifting—indexing, calculation, distribution, and analytics—so you can focus on your product.
+* **Non-Custodial Architecture**: Torque functions strictly as a technical provider and does not maintain signing authority or hold custody of assets.<br>
+* **Smart Contract Integrity**: The torque-offer-protocol-v2 program was formally audited by OtterSec in August 2025 to ensure the security of the on-chain mechanism.<br>
+* **On-Chain Settlement**: Assets are held within a secure on-chain program with predefined allocations; end users sign directly against the program to claim rewards.<br>
+* **Automatic Returns**: The on-chain logic ensures that if a distribution closes, any remainder rewards are automatically returned to the depositing wallet programmatically.

@@ -27,6 +27,13 @@ Torque connects onchain activity to rewards—tokens, NFTs, or points—with pre
 
 ***
 
+### How it Works
+
+* **Non-Custodial Architecture:** Torque operates as a technical provider without signing authority or asset custody; instead, depositors fund an on-chain smart contract with predefined claim allocations, ensuring assets remain decentralized rather than held in a Torque-controlled wallet.
+* **Programmatic Distribution & Settlement:** End users sign transactions directly against the on-chain program to claim rewards, while the smart contract logic automatically triggers the return of any remaining funds to the depositor’s wallet once a distribution period closes.
+
+***
+
 ### What You Can Build in 5 Minutes
 
 * **Weekly trading leaderboard** Top 10 traders compete for tiered rewards. Updates automatically every Monday. Users claim their winnings.
