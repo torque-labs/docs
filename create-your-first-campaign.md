@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Create Your First Campaign
 
 In this doc we will walk through how to create your first campaign.&#x20;
