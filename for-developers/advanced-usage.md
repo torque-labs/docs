@@ -1,5 +1,6 @@
 ---
 description: Additional guides and info for more advanced use cases
+hidden: true
 ---
 
 # Advanced Usage

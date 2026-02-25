@@ -1,5 +1,6 @@
 ---
 description: Learn How Torque Works
+hidden: true
 ---
 
 # How it Works

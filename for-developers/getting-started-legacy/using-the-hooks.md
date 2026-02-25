@@ -50,11 +50,11 @@ function MyComponent() {
 
 | Value         | Type                                                                             | Description                             |
 | ------------- | -------------------------------------------------------------------------------- | --------------------------------------- |
-| offers        | [ApiCampaign](broken-reference)\[]                                               | Array of available offers               |
-| journeys      | [ApiCampaignJourney](broken-reference)\[]                                        | Array of user's progress through offers |
+| offers        | [ApiCampaign](/broken/pages/mFay36jGQg4CCgVWYyGp)\[]                             | Array of available offers               |
+| journeys      | [ApiCampaignJourney](/broken/pages/nBuavwim2yzCCbkbjH7k)\[]                      | Array of user's progress through offers |
 | publicKey     | PublicKey                                                                        | Connected wallet's public key           |
-| user          | [ApiUser](broken-reference)                                                      | The user's data from the Torque API     |
-| userClient    | [TorqueUserClient](broken-reference)                                             | The Torque user client instance         |
+| user          | [ApiUser](/broken/pages/PgsvsphRw0xGaXd6ZqJf)                                    | The user's data from the Torque API     |
+| userClient    | [TorqueUserClient](/broken/pages/nHmZ8dTux4hOnApuPvca)                           | The Torque user client instance         |
 | config        | [TorqueOptions](using-the-hooks.md#torqueoptions)                                | The Torque configuration                |
 | initialized   | boolean                                                                          | Whether the user is initialized         |
 | isLoading     | boolean                                                                          | Whether it is loading                   |
@@ -188,9 +188,9 @@ interface TorqueInitOptions {
 }
 ```
 
-| Value      | Type                              | Description                   |
-| ---------- | --------------------------------- | ----------------------------- |
-| loginInput | [ApiInputLogin](broken-reference) | The login input for the user. |
+| Value      | Type                                                | Description                   |
+| ---------- | --------------------------------------------------- | ----------------------------- |
+| loginInput | [ApiInputLogin](/broken/pages/sk0oENMP9Wd4OkM1lFIN) | The login input for the user. |
 
 ### HandleActionProps
 

@@ -1,5 +1,6 @@
 ---
 description: Setting up the Torque in a React application
+hidden: true
 ---
 
 # Getting Started

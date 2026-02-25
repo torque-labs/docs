@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Off-chain Actions
 
 Off-chain actions allow you to create custom requirements for your campaigns by giving you the ability to use your own data through a webhook and validate the requirements for each user.&#x20;
