@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Core Concepts
 
 ## Core Concepts
