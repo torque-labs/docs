@@ -1,11 +1,8 @@
 ---
 description: Learn How Torque Works
-hidden: true
 ---
 
 # How it Works
-
-### How It Works
 
 #### 1. Define Your Strategy
 

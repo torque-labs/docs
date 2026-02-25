@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Example DEX Campaign
 
 ## Example DEX Campaign: Two Incentives in 10 Minutes
