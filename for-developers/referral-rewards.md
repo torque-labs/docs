@@ -2,7 +2,6 @@
 description: >-
   Torque enables protocols to run precise referral incentives that are linked
   directly to onchain actions taken by the users referred.
-hidden: true
 ---
 
 # Referral Rewards
